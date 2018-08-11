@@ -38,19 +38,23 @@ let db = new sqlite.Database(dbFilename);
 // handle HTTP POST requests
 app.use(bodyparser.json());
 
-app.get("/", function(req, res, next) {
-res.render("home");
+app.get("/", function (req, res, next) {
+  res.render("home");
 });
-app.get("/customers", function(req, res) {
+app.get("/customers", function (req, res) {
   db.all("SELECT name, email, phone, address, city " +
-         "FROM customers", function (err, rows) {
-    rows.forEach(function (row) {
-      console.log(row.name, row.email, row.phone,
-                  row.address, row.city);
-    });
-  });
-});
+    "FROM customers", function (err, rows) {
+      rows.forEach(function (row) {
+        console.log(row.name, row.email, row.phone,
+          row.address, row.city);
+      });
+      const mydata = { customers: rows };
 
+      res.status(200).json({
+        customers: rows
+      });
+    });
+});
 
 app.listen(SERVER_PORT, () => {
   console.info(`Server started at http://localhost:${SERVER_PORT}`);
