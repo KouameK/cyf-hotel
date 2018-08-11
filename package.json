@@ -1,7 +1,7 @@
 {
   "name": "cyf-hotel",
   "version": "0.0.1",
-  "description": "",
+  "description": "![CYF Workshop](./assets/workshop.png)",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -14,11 +14,20 @@
     "express": "^4.15.4",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
-    "knex": "0.13.0"
+    "knex": "0.13.0",
+    "sqlite3": "^4.0.2"
   },
   "devDependencies": {
     "faker": "^4.1.0",
     "jsonfile": "^4.0.0",
     "nodemon": "1.11.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KouameK/cyf-hotel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KouameK/cyf-hotel/issues"
+  },
+  "homepage": "https://github.com/KouameK/cyf-hotel#readme"
 }
