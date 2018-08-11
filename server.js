@@ -56,6 +56,18 @@ app.get("/customers", function (req, res) {
     });
 });
 
+app.get("/customers/:id", function (req, res) {
+  var id = req.params.id;
+  console.log(`hi customer number ${id}`)
+  db.get("SELECT * FROM customers WHERE id = ?", [id],
+    function (err, row) {
+      // console.log('selected row !',row);
+      res.status(200).json({ customers: row });
+    });
+
+});
+
+
 app.listen(SERVER_PORT, () => {
   console.info(`Server started at http://localhost:${SERVER_PORT}`);
 });
